@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(MatApp());
@@ -16,10 +17,65 @@ class MatApp extends StatelessWidget {
   }
 }
 
-class Scaff extends StatelessWidget {
+class Scaff extends StatefulWidget {
   const Scaff({super.key});
   @override
+  State<Scaff> createState() => _Scaff();
+}
+
+class _Scaff extends State<Scaff> {
+  int rollNumber = 1;
+  int randomDiceNumberGenerationFunction() {
+    return Random().nextInt(6) + 1;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xff0f0c29), Color(0xff24243e)],
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                '"Let Probability Do Its Thing."',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Image.asset('assets/dice-$rollNumber.png'),
+              OutlinedButton(
+                onPressed:
+                    () => {
+                      setState(() {
+                        rollNumber = randomDiceNumberGenerationFunction();
+                      }),
+                    },
+                style: ButtonStyle(
+                  shape: WidgetStateProperty.all<OutlinedBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
+                child: Text(
+                  'Roll',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
