@@ -9,7 +9,7 @@ A minimal Flutter app that simulates rolling a dice. Tap the **Roll** button and
 ## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/your-username/dice_roll_flutter.git
+git clone https://github.com/Tinker-Bits/flutter_dice_roll.git
 cd dice_roll_flutter
 flutter pub get
 flutter run
