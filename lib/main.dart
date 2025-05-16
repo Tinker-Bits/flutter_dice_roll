@@ -36,11 +36,14 @@ class _Scaff extends State<Scaff> {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [Color(0xff0f0c29), Color(0xff24243e)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight
           ),
         ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
             children: [
               Text(
                 '"Let Probability Do Its Thing."',
@@ -49,7 +52,7 @@ class _Scaff extends State<Scaff> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Image.asset('assets/dice-$rollNumber.png'),
+              Image.asset('assets/dice-$rollNumber.png',width: 450),
               OutlinedButton(
                 onPressed:
                     () => {
